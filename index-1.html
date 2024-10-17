@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUNSPOT</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script1.js"></script>
+    <!-- font awesome icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="first-page">
+      <div class="header">
+        <h1 class="site-name">
+          <i class="fas fa-cloud"></i> <span class="site-name">SUNSPOT</span>
+        </h1>
+        <div class="current-location">
+          <i class="fas fa-map-marker-alt location-icon"></i>
+          <span id="current-location">London, UK</span>
+        </div>
+      </div>
+
+      <div class="container-search">
+        <h1 class="search-label">
+          Your Guide to <span class="Nature">Nature’s</span> Mood Swings!
+        </h1>
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Another location..."
+        />
+      </div>
+      <div id="weather" class="weather-info">
+        <!-- Weather data will be displayed here -->
+      </div>
+    </div>
+    <!-- end before login -->
+
+    <!-- Current Weather Section -->
+    <h3 class="d-flex justify-content-center highlight" id="weather-section">
+      Current Weather
+    </h3>
+    <div class="flex-container">
+      <div class="flex-item my-weather">
+        <h5 style="margin-bottom: 40px">Current Weather</h5>
+        <div class="weather-icon"></div>
+        <!-- Add this line for the icon -->
+        <h2 id="degree" style="padding-top: 20px"></h2>
+        <p class="mb-0">
+          <strong> </strong>
+          <i class="#" style="font-size: 48px"></i>
+        </p>
+        <p class="mb-0">
+          <i
+            class="fas fa-calendar-alt"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          Wednesday, 1st May<br />
+          <i
+            class="fas fa-map-marker-alt"
+            style="font-size: 20px; color: white; padding-right: 10px"
+          ></i>
+          Kabul, Afghanistan
+        </p>
+      </div>
+
+      <!-- 7 Day Forecast Section -->
+      <div class="flex-item my-weather">
+        <h5>7-Day Forecast</h5>
+        <p>
+          <i
+            class="fas fa-snowflake"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          33°C 27-Aug Sunday
+        </p>
+        <p>
+          <i
+            class="fas fa-snowflake"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          33°C 27-Aug Sunday
+        </p>
+        <p>
+          <i
+            class="fas fa-snowflake"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          33°C 27-Aug Sunday
+        </p>
+        <p>
+          <i
+            class="fas fa-snowflake"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          33°C 27-Aug Sunday
+        </p>
+        <p>
+          <i
+            class="fas fa-snowflake"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          33°C 27-Aug Sunday
+        </p>
+        <p>
+          <i
+            class="fas fa-snowflake"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          33°C 27-Aug Sunday
+        </p>
+        <p>
+          <i
+            class="fas fa-snowflake"
+            style="font-size: 20px; padding-right: 10px"
+          ></i>
+          33°C 27-Aug Sunday
+        </p>
+      </div>
+    </div>
+
+    <!-- Today's Highlight Section -->
+    <h3 class="d-flex justify-content-center highlight">Today's Highlights</h3>
+    <div class="flex-container">
+      <!-- first row -->
+      <div class="flex-item high-css">
+        <h5>Humidity</h5>
+        <p>
+          <i
+            class="fas fa-water"
+            style="font-size: 20px; padding-top: 10px"
+          ></i>
+          <span class="percent"><strong>82%</strong></span>
+        </p>
+      </div>
+      <div class="flex-item high-css">
+        <h5>Temperature</h5>
+        <p>
+          <i
+            class="fas fa-temperature-low"
+            style="font-size: 20px; padding-top: 10px"
+          ></i
+          ><span class="percent"><strong>25°C</strong></span>
+        </p>
+      </div>
+      <div class="flex-item high-css">
+        <h5>Wind Speed</h5>
+        <p>
+          <i class="fas fa-wind" style="font-size: 20px; padding-top: 10px"></i
+          ><span class="percent"><strong>15km/h</strong></span>
+        </p>
+      </div>
+    </div>
+
+    <!-- news -->
+    <div class="my-container2 news-part">
+      <div class="row my-row2">
+        <h2 class="d-flex justify-content-center p-3">
+          Weather Forecast News!
+        </h2>
+        <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+          <div class="my-card2 a">
+            <div class="my-card-content2">
+              <h2>Heatwave Advisory!</h2>
+              <p>
+                A heatwave is forecasted, with temperatures reaching up to 40°C.
+              </p>
+            </div>
+            <div class="my-card-footer2">
+              <a href="#" class="my-read-more2">Read More...</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+          <div class="my-card2 b">
+            <div class="my-card-content2">
+              <h2>Thunderstorm Warning</h2>
+              <p>A severe thunderstorm is expected, bringing heavy rainfall.</p>
+            </div>
+            <div class="my-card-footer2">
+              <a href="#" class="my-read-more2">Read More...</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+          <div class="my-card2 c">
+            <div class="my-card-content2">
+              <h2>Weather Warning</h2>
+              <p>Heavy rain expected in the next 24 hours.</p>
+            </div>
+            <div class="my-card-footer2">
+              <a href="#" class="my-read-more2">Read More...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+        history
+      -->
+    <main>
+      <h1 class="history-h1">Historical <span>Weather</span> Data</h1>
+      <br />
+      <h6>Explore past weather conditions for your location!</h6>
+      <br />
+      <label style="font-family: Dancing Script" , cursive; for="date label2"
+        >Date Selector:</label
+      >
+      <input type="data" id="data" />
+      <input type="date" id="date" />
+      <div id="weather-data">
+        <hr />
+        <br />
+
+        <br />
+        <div class="justify-content-center weather-entry">
+          <h4>
+            <i class="fa-solid fa-location-dot"></i>
+            <strong>Location: <br /> </strong>
+          </h4>
+          <h6>Kabul, Afghanistan</h6>
+          <div class="weather-detail">
+            <p>
+              <i class="fa-solid fa-cloud"></i> <strong>Humidity:</strong> 32%
+            </p>
+          </div>
+          <div class="weather-detail">
+            <p>
+              <i class="fa-solid fa-wind"></i> <strong>Wind Speed:</strong> 10
+              Km/h
+            </p>
+          </div>
+          <div class="weather-detail">
+            <p>
+              <i class="fa-solid fa-temperature-half"></i>
+              <strong>Temperature:</strong> 34°C
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- hotel -->
+    <h1 class="hotel-text">
+      <strong
+        >Best Hotels In <br />
+        Location</strong
+      >
+    </h1>
+    <div class="hotels">
+      <div class="hotel-card">
+        <img
+          src="https://t4.ftcdn.net/jpg/00/09/21/15/360_F_9211505_d4hxfNtPeTfgt7AeGmoO7u79P2hwxkoQ.jpg"
+          alt="The Grand Plaza Image"
+          class="hotel-image"
+        />
+        <p class="hotel-address"><strong>123 Main St</strong></p>
+        <p class="hotel-address locatio-hot">
+          <i class="fas fa-map-marker-alt"></i> China
+        </p>
+        <p class="hotel-cost">
+          <span style="color: green"><strong>$</strong></span
+          ><strong>200</strong><span class="per-night">/per Night</span>
+        </p>
+        <button class="book-now-btn">Book Now</button>
+        <a href="#" class="see-details-link">See Details...</a>
+      </div>
+
+      <div class="hotel-card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe91lmkQ2L86B_0m3dPKjzK3lt13pD_BHxwg&s"
+          alt="Oceanview Resort Image"
+          class="hotel-image"
+        />
+        <p class="hotel-address"><strong> 456 Beach Ave</strong></p>
+        <p class="hotel-address locatio-hot">
+          <i class="fas fa-map-marker-alt"></i> Italy
+        </p>
+        <p class="hotel-cost">
+          <span style="color: green"><strong>$</strong></span
+          ><strong>299</strong><span class="per-night">/per Night</span>
+        </p>
+        <button class="book-now-btn">Book Now</button>
+        <a href="#" class="see-details-link">See Details...</a>
+      </div>
+
+      <div class="hotel-card">
+        <img
+          src="https://image-tc.galaxy.tf/wijpeg-2ufz1jooexyd72j2wgmjasxif/select-room-twin-bedroom_wide.jpg?crop=0%2C100%2C1920%2C1080"
+          alt="Mountain Retreat Image"
+          class="hotel-image"
+        />
+        <p class="hotel-address"><strong> 789 Hilltop Rd</strong></p>
+        <p class="hotel-address locatio-hot">
+          <i class="fas fa-map-marker-alt"></i> Japan
+        </p>
+        <p class="hotel-cost">
+          <span style="color: green"><strong>$</strong></span
+          ><strong>180</strong> <span class="per-night">/per Night</span>
+        </p>
+        <button class="book-now-btn">Book Now</button>
+        <a href="#" class="see-details-link">See Details...</a>
+      </div>
+
+      <div class="hotel-card">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1661964071015-d97428970584?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWx8ZW58MHx8MHx8fDA%3D"
+          alt="City Center Inn Image"
+          class="hotel-image"
+        />
+        <div class="hotel-add">
+          <p class="hotel-address"><strong> 321 Downtown Blvd</strong></p>
+          <p class="hotel-address locatio-hot">
+            <i class="fas fa-map-marker-alt"></i> United States
+          </p>
+        </div>
+        <p class="hotel-cost">
+          <span style="color: green"><strong>$</strong></span
+          ><strong>150</strong><span class="per-night">/per Night</span>
+        </p>
+        <button class="book-now-btn">Book Now</button>
+        <a href="#" class="see-details-link">See Details...</a>
+      </div>
+    </div>
+
+    <!-- images -->
+    <div class="gallery-item">
+      <h1>Expandable Image Gallery</h1>
+      <div class="gallery">
+        <div class="img-box">
+          <h2>Lake View</h2>
+        </div>
+        <div class="img-box">
+          <h2>Summer</h2>
+        </div>
+        <div class="img-box">
+          <h2>Monsoon</h2>
+        </div>
+        <div class="img-box">
+          <h2>Winter</h2>
+        </div>
+      </div>
+    </div>
+    <!-- end images -->
+
+    <!-- 
+      dashboard
+    -->
+    <section class="dashboard-section">
+      <div class="container-dashboard">
+        <h1>Personalized Weather <span>Dashboard</span></h1>
+        <div class="input-section">
+          <input
+            class="input3"
+            type="text"
+            id="location-input"
+            placeholder="Enter city"
+          />
+          <button class="add-location" id="add-location-btn">
+            Add Location
+          </button>
+        </div>
+
+        <div class="weather-dashboard">
+          <div id="weather-content" class="weather-content"></div>
+          <div id="alerts-content" class="alerts-content"></div>
+        </div>
+
+        <div class="preferred-locations">
+          <h3>Preferred Locations:</h3>
+          <ul id="location-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+      map
+    -->
+
+    <!-- Interactive Map Section -->
+    <h3 class="d-flex justify-content-center map-text">
+      Explore Weather Conditions!
+    </h3>
+    <div id="map" style="height: 400px"></div>
+
+    <!-- 
+      updates
+    -->
+    <div class="updates">
+      <div class="updates-content">
+        <h1 class="updat-text" style="color: #013c5b">
+          Subscribe our <br />
+          Newsletter for Weather <br /><span>Updates</span>
+        </h1>
+        <div class="login-part">
+          <div class="input-box">
+            <span class="my-icon">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <input class="input1" type="email" id="email" required />
+            <label class="label email" for="email">Email</label>
+          </div>
+
+          <div class="input-box">
+            <span class="my-icon">
+              <i class="fas fa-lock"></i>
+            </span>
+            <input class="input1" type="password" id="password" required />
+            <label class="label email" for="password">Password</label>
+          </div>
+
+          <button type="submit" class="upd-but">Login</button>
+        </div>
+      </div>
+      <div class="social-icon">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p class="copyright">&copy; 2024 SUNSPOT. All rights reserved.</p>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- script from dashboard -->
+    <script>
+      function changeButtonColor() {
+        var button = document.querySelector(".add-button");
+        button.style.backgroundColor = "#28a745";
+      }
+    </script>
+  </body>
+</html>
